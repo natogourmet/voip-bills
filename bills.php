@@ -7,7 +7,7 @@ sleep(1);
 $agi->exec_agi("googletts.agi,\"This is a DB connection test\",en");
 
 // ENV VAR SETTING
-require("definiciones.inc");
+require("def.inc");
 $link = mysql_connect(HOST, USER, PWD);
 mysql_select_db(DB, $link);
 
