@@ -12,7 +12,7 @@ $link = mysql_connect(HOST, USER, PWD);
 mysql_select_db(DB, $link);
 
 // RECEIVING ID INPUT
-$agi->exec_agi("googletts.agi,\"Please, type your ID number followed by the Sharp Sign\",en");
+$agi->exec_agi("googletts.agi,\"Please type your ID number followed by the Sharp Sign\",en");
 $num = $agi->get_data('beep', 3000, 20, '#');
 $userId = $num['result'];
 
