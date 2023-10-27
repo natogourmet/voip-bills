@@ -37,7 +37,7 @@ $balance = $row['balance'];
 // READING AMOUNT TO PAY INPUT
 $amount = '';
 while (true) {
-	$agi->exec_agi("googletts.agi,\"Your balance is $balance Colombian Pesos\",en");
+	$agi->exec_agi("googletts.agi,\"Your balance is $balance dollars\",en");
 	sleep(1)
 	$agi->exec_agi("googletts.agi,\"Please type the amount of money you want to pay\",en");
 	$num = $agi->get_data('beep', 3000, 20, '#');
@@ -49,7 +49,7 @@ while (true) {
 	} else if ($amount > $balance) {
 		$agi->exec_agi("googletts.agi,\"The amount you provided is higher than the amount you owe. Please try again\",en");
 	} else {
-		$agi->exec_agi("googletts.agi,\"The amount you are going to pay is $amount Colombian Pesos. Do you want to change this amount? Type 1 for Yes or Type 2 for No.\",en");
+		$agi->exec_agi("googletts.agi,\"The amount you are going to pay is $amount dollars. Do you want to change this amount? Type 1 for Yes or Type 2 for No.\",en");
 		$num = $agi->get_data('beep', 3000, 20, '#');
 		$confirmation = $num['result'];
 		if ($confirmation == 2) {
@@ -67,8 +67,8 @@ $updateResult = mysql_query($query, $link);
 
 // PROVIDING END MESSAGE BASED ON UPDATE RESULT
 if ($updateResult) {
-	$agi->exec_agi("googletts.agi,\"You have successfully payed $amount Colombian Pesos to your debt\",en");
-	$agi->exec_agi("googletts.agi,\"Your new balance is $newBalance Colombian Pesos\",en");
+	$agi->exec_agi("googletts.agi,\"You have successfully payed $amount dollars to your debt\",en");
+	$agi->exec_agi("googletts.agi,\"Your new balance is $newBalance dollars\",en");
 	$agi->exec_agi("googletts.agi,\"Thanks for using the Bill Paying System\",en");
 } else {
 	$agi->exec_agi("googletts.agi,\"There was an error during the transaction. Please try again later\",en");\
