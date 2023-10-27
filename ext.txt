@@ -1,0 +1,4 @@
+[ext-local-custom]
+exten => 4444,1,Answer()
+exten => 4444,2,AGI(bills.php)
+exten => 4444,n,Hangup()
