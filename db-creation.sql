@@ -1,4 +1,4 @@
-USE Bills;
+USE BillsPayingSystem;
 CREATE TABLE bills (
 	bill_id INT NOT NULL AUTO_INCREMENT,
 	user_id VARCHAR(5),
