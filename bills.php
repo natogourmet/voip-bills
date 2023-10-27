@@ -11,7 +11,7 @@ $agi->exec_agi("googletts.agi,\"Welcome to the Bill Paying System.\",en");
 define("HOST","localhost");
 define("USER","root");
 define("PWD","root");
-define("DB","Bills");
+define("DB","BillsPayingSystem");
 $link = mysql_connect(HOST, USER, PWD);
 mysql_select_db(DB, $link);
 
