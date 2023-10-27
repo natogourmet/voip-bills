@@ -7,11 +7,7 @@ sleep(1);
 $agi->exec_agi("googletts.agi,\"Welcome to the Bill Paying System.\",en");
 
 // ENV VAR SETTING
-// require("def.inc");
-define("HOST","localhost");
-define("USER","root");
-define("PWD","root");
-define("DB","BillsPayingSystem");
+require("def.inc");
 $link = mysql_connect(HOST, USER, PWD);
 mysql_select_db(DB, $link);
 
@@ -62,7 +58,7 @@ while (true) {
 $newBalance = $balance - $amount;
 
 // UPDATING THE NEW BALANCE TO DB
-$query = "UPDATE bills SET balance=$balance WHERE user_id=$userId";
+$query = "UPDATE bills SET balance=$newBalance WHERE user_id=$userId";
 $updateResult = mysql_query($query, $link);
 
 // PROVIDING END MESSAGE BASED ON UPDATE RESULT
