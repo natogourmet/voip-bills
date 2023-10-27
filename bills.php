@@ -38,7 +38,7 @@ $balance = $row['balance'];
 $amount = '';
 while (true) {
 	$agi->exec_agi("googletts.agi,\"Your balance is $balance dollars\",en");
-	sleep(1)
+	sleep(1);
 	$agi->exec_agi("googletts.agi,\"Please type the amount of money you want to pay\",en");
 	$num = $agi->get_data('beep', 3000, 20, '#');
 	$amount = $num['result'];
@@ -62,7 +62,7 @@ while (true) {
 $newBalance = $balance - $amount;
 
 // UPDATING THE NEW BALANCE TO DB
-$query = "UPDATE bills SET balance=$balance WHERE user_id=$userId"
+$query = "UPDATE bills SET balance=$balance WHERE user_id=$userId";
 $updateResult = mysql_query($query, $link);
 
 // PROVIDING END MESSAGE BASED ON UPDATE RESULT
@@ -71,6 +71,6 @@ if ($updateResult) {
 	$agi->exec_agi("googletts.agi,\"Your new balance is $newBalance dollars\",en");
 	$agi->exec_agi("googletts.agi,\"Thanks for using the Bill Paying System\",en");
 } else {
-	$agi->exec_agi("googletts.agi,\"There was an error during the transaction. Please try again later\",en");\
+	$agi->exec_agi("googletts.agi,\"There was an error during the transaction. Please try again later\",en");
 }
 ?>
