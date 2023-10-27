@@ -1,2 +1,2 @@
-grant all privileges on Bills.* to 'root'@'localhost' identified by 'root' with grant option;
+grant all privileges on BillsPayingSystem.* to 'root'@'localhost' identified by 'root' with grant option;
 flush privileges;
