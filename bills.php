@@ -13,7 +13,7 @@ mysql_select_db(DB, $link);
 
 // READING ID INPUT
 $agi->exec_agi("googletts.agi,\"Please type your ID number followed by the Sharp Sign\",en");
-$num = $agi->get_data('beep', 3000, 20, '#');
+$num = $agi->get_data('beep', 3000, 20);
 $userId = $num['result'];
 
 // VALIDATING USER ID INPUT
@@ -36,7 +36,7 @@ while (true) {
 	$agi->exec_agi("googletts.agi,\"Your balance is $balance dollars\",en");
 	sleep(1);
 	$agi->exec_agi("googletts.agi,\"Please type the amount of money you want to pay\",en");
-	$num = $agi->get_data('beep', 3000, 20, '#');
+	$num = $agi->get_data('beep', 3000, 20);
 	$amount = $num['result'];
 
 	// VALIDATING AMOUNT TO PAY INPUT
@@ -45,8 +45,8 @@ while (true) {
 	} else if ($amount > $balance) {
 		$agi->exec_agi("googletts.agi,\"The amount you provided is higher than the amount you owe. Please try again\",en");
 	} else {
-		$agi->exec_agi("googletts.agi,\"The amount you are going to pay is $amount dollars. Do you want to change this amount? Type 1 for Yes or Type 2 for No.\",en");
-		$num = $agi->get_data('beep', 3000, 20, '#');
+		$agi->exec_agi("googletts.agi,\"The amount you are going to pay is $amount dollars. Do you want to change this amount? Type 1 to change the amount or Type 2 to continue\",en");
+		$num = $agi->get_data('beep', 3000, 20);
 		$confirmation = $num['result'];
 		if ($confirmation == 2) {
 			break;
